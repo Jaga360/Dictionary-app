@@ -13,7 +13,6 @@ class Displaycards extends Component{
 
   render(){
     const {meaning,word,inlist}=this.props;
-    console.log("indisplaycards");
       return(
         <div className="row">
           <div className="col-sm-6">

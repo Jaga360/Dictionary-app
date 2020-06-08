@@ -8,7 +8,7 @@ class App extends Component{
     state={
         meaning:[],
         word:'',
-        words:['applle','apel','hjfd','envy'],
+        words:[],
         inList:false
     }
     
@@ -31,21 +31,18 @@ class App extends Component{
     handleChoice=(word)=>{
         let {words}=this.state;
          if(words.includes(word)){
-            console.log("removing");
             words=words.filter((w)=> word !== w);
             this.setState({
                 words,
                 inList:false
             })
          }else{
-          console.log("adding");
           words.push(word);
           this.setState({
             words,
             inList:true
           })
          }
-          console.log(word,words);
     }
 
     render(){
@@ -55,7 +52,7 @@ class App extends Component{
            {this.state.meaning.length !== 0 &&
            <Displaycard meaning={this.state.meaning} word={this.state.word} inlist={this.state.inList} 
            closecard={this.closeCard} handlechoice={(word)=>{this.handleChoice(word)}}/>}
-           {this.state.words.length !==0 && <Wordslist words={this.state.words}/>}
+           {this.state.words.length !==0 && <Wordslist words={this.state.words} setmeaning={this.setMeaning} />}
          </div>  
         );
     }

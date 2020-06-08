@@ -8,10 +8,11 @@ class Searchbox extends Component{
     }
 
     handleClick=()=>{
-       fetchmeaning(this.state.inputValue)
+       const word=this.state.inputValue;
+       fetchmeaning(word)
        .then((meaning)=>{
            if(meaning !== undefined)
-           console.log(meaning);
+           this.props.setmeaning(meaning,word);
        })
        this.setInput('');
     }

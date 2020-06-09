@@ -12,10 +12,19 @@ class App extends Component{
         words:[],
         inList:false
     }
+
+    getStatus=(word)=>{
+        let {words}=this.state;
+        let status=false; 
+        words.forEach((w)=>{
+            if(w.toLowerCase() === word.toLowerCase())
+              status=true;
+        });
+        return status;
+    }
     
     setMeaning=(meaning,word)=>{
-        const {words}=this.state;
-        const status = words.includes(word);
+        let status=this.getStatus(word);
         this.setState({
             meaning,
             word,
@@ -31,18 +40,24 @@ class App extends Component{
 
     handleChoice=(word)=>{
         let {words}=this.state;
-         if(words.includes(word)){
-            words=words.filter((w)=> word !== w);
+        let status=this.getStatus(word);
+        if(status){
+            words=words.filter((w)=> word.toLowerCase() !== w.toLowerCase());
             this.setState({
                 words,
                 inList:false
             })
          }else{
-          words.push(word);
-          this.setState({
-            words,
-            inList:true
-          })
+             words.push(word);
+             words.sort((a,b)=>{
+                if (a.toLowerCase() < b.toLowerCase()) return -1;
+                if (a.toLowerCase() > b.toLowerCase()) return 1;
+               return 0;
+             });
+             this.setState({
+                words,
+                inList:true
+             })
          }
     }
 

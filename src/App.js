@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Searchbox from "./Searchbox";
 import Displaycard from "./Displaycard";
 import Wordslist from './Wordslist';
+import './App.css';
 
 class App extends Component{
 
@@ -48,11 +49,13 @@ class App extends Component{
     render(){
         return(
          <div>
-           <Searchbox setmeaning={this.setMeaning}  />
-           {this.state.meaning.length !== 0 &&
-           <Displaycard meaning={this.state.meaning} word={this.state.word} inlist={this.state.inList} 
-           closecard={this.closeCard} handlechoice={(word)=>{this.handleChoice(word)}}/>}
-           {this.state.words.length !==0 && <Wordslist words={this.state.words} setmeaning={this.setMeaning} />}
+           <div className="search-set">
+             <Searchbox setmeaning={this.setMeaning}  />
+             {this.state.meaning.length !== 0 &&
+             <Displaycard meaning={this.state.meaning} word={this.state.word} inlist={this.state.inList} 
+             closecard={this.closeCard} handlechoice={(word)=>{this.handleChoice(word)}}/>}
+           </div>
+             {this.state.words.length !==0 && <Wordslist words={this.state.words} setmeaning={this.setMeaning} />}
          </div>  
         );
     }

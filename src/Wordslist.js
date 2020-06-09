@@ -11,7 +11,7 @@ class Wordslist extends Component {
     render(){
         const {words}=this.props;
         return(
-            <div>
+            <div className="words-list">
                 {words.map((word,index)=>(
                     <h6 onClick={()=>{this.handleClick(word)}} key={index}>{word}</h6>
                 ))}

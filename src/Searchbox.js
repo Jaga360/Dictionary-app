@@ -29,7 +29,7 @@ class Searchbox extends Component{
 
     render(){
         return(
-        <div className="input-group mb-3">
+        <div className="input-group mb-3 search-box">
             <input type="text" className="form-control" placeholder="Pick a word" value={this.state.inputValue} 
             onChange={this.handleChange}/>
             <div className="input-group-append">

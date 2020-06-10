@@ -3,6 +3,8 @@ import Searchbox from "./Searchbox";
 import Displaycard from "./Displaycard";
 import Wordslist from './Wordslist';
 import './App.css';
+import Loadingindicator from './Loadingindicator';
+
 
 class App extends Component{
 
@@ -65,7 +67,8 @@ class App extends Component{
         return(
          <div>
            <div className="search-set">
-             <Searchbox setmeaning={this.setMeaning}  />
+             <Searchbox setmeaning={this.setMeaning} />
+             <Loadingindicator/>
              {this.state.meaning.length !== 0 &&
              <Displaycard meaning={this.state.meaning} word={this.state.word} inlist={this.state.inList} 
              closecard={this.closeCard} handlechoice={(word)=>{this.handleChoice(word)}}/>}

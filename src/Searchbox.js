@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import fetchmeaning from './API/fetchmeaning.js'
+import fetchmeaning from './API/fetchmeaning.js';
+import { trackPromise } from 'react-promise-tracker';
 
 class Searchbox extends Component{
 
@@ -9,11 +10,13 @@ class Searchbox extends Component{
 
     handleClick=()=>{
        const word=this.state.inputValue;
-       fetchmeaning(word)
-       .then((meaning)=>{
-           if(meaning !== undefined)
-           this.props.setmeaning(meaning,word);
-       })
+       trackPromise(
+        fetchmeaning(word)
+        .then((meaning)=>{
+            if(meaning !== undefined)
+            this.props.setmeaning(meaning,word);
+        })
+       );
        this.setInput('');
     }
 

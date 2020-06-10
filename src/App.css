@@ -48,6 +48,20 @@ h6:hover{
     color: whitesmoke;
 }
 
+.loader-div{
+    margin-left:10%;
+    width: 75%;
+    height: 100;  
+    display: flex;
+    justify-content: center;   
+    align-items: center;
+}
+
+.loader{
+    height:100;
+    width:100;
+}
+
 @media (max-width:850px){
 
     .search-box , .display-card{

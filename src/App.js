@@ -4,7 +4,7 @@ import Displaycard from "./Displaycard";
 import Wordslist from './Wordslist';
 import './App.css';
 import Loadingindicator from './Loadingindicator';
-
+import * as store from './API/localstorage';
 
 class App extends Component{
 
@@ -49,6 +49,7 @@ class App extends Component{
                 words,
                 inList:false
             })
+            store.sendToLocalStorage(words);
          }else{
              words.push(word);
              words.sort((a,b)=>{
@@ -60,7 +61,15 @@ class App extends Component{
                 words,
                 inList:true
              })
+             store.sendToLocalStorage(words);
          }
+    }
+
+    componentDidMount(){
+       const words = store.getFromLocalStorage();
+       this.setState({
+        words
+       })
     }
 
     render(){

@@ -5,7 +5,7 @@ export function sendToLocalStorage (wordlist){
 
 export function getFromLocalStorage(){
    let wordlist=localStorage.getItem('dictionary-app');
-   if(wordlist !== ''){
+   if((wordlist !== '') && wordlist !== null){
        wordlist=wordlist.split(',');
        return wordlist;
    }else{

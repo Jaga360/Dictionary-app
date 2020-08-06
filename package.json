@@ -41,9 +41,5 @@
     "url": "git+https://github.com/Jaga360/Dictionary-app.git"
   },
   "author": "Jaga",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Jaga360/Dictionary-app/issues"
-  },
-  "homepage": "https://github.com/Jaga360/Dictionary-app#readme"
+  "license": "ISC" 
 }
